@@ -9,8 +9,6 @@
 //
 // Tests are located in the `tests` folder—pay attention to the visibility of your types and methods.
 
-use std::ops::Add;
-
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct SaturatingU16 {
     value: u16,
@@ -19,15 +17,6 @@ pub struct SaturatingU16 {
 impl From<u16> for SaturatingU16 {
     fn from(value: u16) -> Self {
         Self { value }
-<<<<<<< Updated upstream
-=======
-    }
-}
-
-impl From<&u16> for SaturatingU16 {
-    fn from(value: &u16) -> Self {
-        (*value).into()
->>>>>>> Stashed changes
     }
 }
 
@@ -39,82 +28,50 @@ impl From<u8> for SaturatingU16 {
     }
 }
 
-<<<<<<< Updated upstream
 impl From<&u16> for SaturatingU16 {
     fn from(value: &u16) -> Self {
-=======
-impl From<&u8> for SaturatingU16 {
-    fn from(value: &u8) -> Self {
->>>>>>> Stashed changes
         (*value).into()
     }
 }
 
-<<<<<<< Updated upstream
 impl From<&u8> for SaturatingU16 {
     fn from(value: &u8) -> Self {
         (*value).into()
     }
 }
 
-impl Add for SaturatingU16 {
+impl std::ops::Add for SaturatingU16 {
     type Output = SaturatingU16;
 
     fn add(self, rhs: Self) -> Self::Output {
         self + rhs.value
-=======
-impl Add for SaturatingU16 {
-    type Output = SaturatingU16;
-
-    fn add(self, rhs: SaturatingU16) -> Self::Output {
-        Self {
-            value: self.value + rhs.value,
-        }
->>>>>>> Stashed changes
     }
 }
 
-impl Add<&SaturatingU16> for SaturatingU16 {
+impl std::ops::Add<&SaturatingU16> for SaturatingU16 {
     type Output = SaturatingU16;
 
     fn add(self, rhs: &SaturatingU16) -> Self::Output {
-<<<<<<< Updated upstream
         self + *rhs
-=======
-        Self {
-            value: self.value + rhs.value,
-        }
->>>>>>> Stashed changes
     }
 }
 
-impl Add<u16> for SaturatingU16 {
+impl std::ops::Add<u16> for SaturatingU16 {
     type Output = Self;
 
     fn add(self, rhs: u16) -> Self::Output {
-<<<<<<< Updated upstream
         let sum = self.value.saturating_add(rhs);
         Self {
             value: sum,
-=======
-        Self {
-            value: self.value.saturating_add(rhs),
->>>>>>> Stashed changes
         }
     }
 }
 
-impl Add<&u16> for SaturatingU16 {
+impl std::ops::Add<&u16> for SaturatingU16 {
     type Output = SaturatingU16;
 
     fn add(self, rhs: &u16) -> Self::Output {
-<<<<<<< Updated upstream
         self + *rhs
-=======
-        Self {
-            value: self.value + *rhs,
-        }
->>>>>>> Stashed changes
     }
 }
 
